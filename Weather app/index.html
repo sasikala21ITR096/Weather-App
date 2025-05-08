@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="card">
+    <div class="search">
+    <input type="text" placeholder="Enter city name"  spellcheck="false">
+    <button ><img src="images/search.png"></button>
+    </div>
+    <div class="weather">
+        <img src="images/rain.png" class="weatherimage">
+        <h1 class="degree">22°C </h1>
+        <h2 class="city">New York </h2>
+
+    </div>
+    <div class="details">
+    <div class="humidity">
+        <img src="images/humidity.png">
+        <h1>65%</h1>
+        <h2>Humidity</h2>
+    </div>
+    <div class="speed">
+        <img src="images/wind.png">
+        <h1>18 km/h</h1>
+        <h2>Wind Speed</h2>
+    </div>
+</div>
+    </div>
+</body>
+<script>
+const apikey="53e63d06ac8a16dea42d6579129f57ce";
+const apiurl="http://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+const searchinput=document.querySelector(".search input");
+const searchbtn=document.querySelector(".search button");
+const weatherimage=document.querySelector(".weatherimage");
+
+async function check(city)
+{
+    const response=await fetch(apiurl + city + `&appid=${apikey}`);
+    const data= await response.json();
+    console.log(data);
+
+    document.querySelector(".city").innerHTML=data.name;
+    document.querySelector(".degree").innerHTML= Math.round(data.main.temp) + "°C";
+    document.querySelector('.humidity h1').innerHTML=data.main.humidity + "%";
+    document.querySelector('.speed h1').innerHTML= Math.round(data.wind.speed )+ "km/hr";
+
+    if(data.weather[0].main == "Clouds"){
+        weatherimage.src="images/clouds.png";
+    }
+    else if(data.weather[0].main == "Clear"){
+        weatherimage.src="images/clear.png";
+    }
+    else if(data.weather[0].main == "Rain"){
+        weatherimage.src="images/rain.png";
+    }
+    else if(data.weather[0].main == "Drizzle"){
+        weatherimage.src="images/drizzle.png";
+    }
+    else if(data.weather[0].main == "Mist"){
+        weatherimage.src="images/mist.png";
+    }
+
+    localStorage.setItem("getcity",city);
+
+}
+searchbtn.addEventListener("click",()=>{
+    check(searchinput.value);
+})
+localStorage.getItem("getcity");
+
+
+
+
+
+
+</script>
+</html>

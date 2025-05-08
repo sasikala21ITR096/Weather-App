@@ -1,0 +1,104 @@
+.card{
+    width:90%;
+    max-width:470px;
+    color:beige;
+    margin: 100px auto 0;
+    border-radius:20px;
+    padding: 40px 35px;
+    text-align: center;
+    background-color: rgb(201, 235, 201);
+}
+.search{
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.search input{
+    outline:0;
+    border:0;
+    padding:10px 25px;
+    border-radius:30px;
+   background: #ebfffc;
+    color:black;
+    height:60px;
+    flex:1;
+    margin-right:16px;
+    font-size:18px;
+    align-items: center;
+    cursor: pointer;
+}
+.search button{
+    outline:0;
+    border:0;
+    background: #ebfffc;
+    border-radius: 50%;
+    width:60px;
+    height:60px;
+    cursor:pointer;
+}
+.search button img{
+    width:16px;
+}
+.details{
+    margin-top:50px;
+    padding: 0 20px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.humidity{
+   
+    display: flex;
+   align-items: center;
+    text-align: left;
+   
+}
+.humidity img{
+    width:60px;
+    margin-right: 10px;
+    flex-direction: column;
+}
+.humidity h1{
+   
+    font-size:20px;
+  
+  
+}
+.humidity h2{
+
+    font-size: 20px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    
+}
+
+  
+.speed{
+    display: flex;
+    align-items: center;
+     text-align: left;
+}
+.speed img{
+    width:60px;
+    margin-right: 10px;
+    flex-direction: column;
+}
+.speed h1{
+    font-size: 20px;
+}
+.speed h2{
+   
+    font-size: 20px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+}
